@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slova Application</title>
+</head>
+<body ng-app = "slovApp">
+	<div ng-controller = "mainController as ctrl">
+	
+		<form ng-submit=ctrl.postIt()>
+			<input type=text ng-model="ctrl.newPost.createdBy" required>
+			<textarea  ng-model="ctrl.newPost.text" required></textarea>
+			<button type="submit">Post</button>
+		</form>
+	
+
+	<H3>Posts</H3>
+			<div ng-repeat = "post in ctrl.posts | orderBy:createdAt:true" ng-class-odd = 'odd' ng-class-odd = 'even'  >
+				<p>Post by: {{post.createdBy}}</p>
+				<p>Says: {{post.text}}</p>
+				<p>Posted at: {{post.createdAt | date:"h:mma 'on'  MM d, y "}}</p>
+				<hr>
+			</div>
+	</div>
+	<script src="javascripts/angular.min.js"></script>
+	<script src="javascripts/app.js"></script>
+</body>
+</html>

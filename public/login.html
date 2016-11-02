@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body ng-app = "slovApp">
+<h2>Login</h2>
+	<div ng-controller = "authController as auth">
+	<form ng-submit="auth.login()" >
+		<input type = text ng-model="auth.user.username">
+		<input type = password ng-model="auth.user.password">
+		<button type = submit>Login</button>
+	</form>
+	{{auth.error_message}}
+	</div>
+	<script src="javascripts/angular.min.js"></script>
+	<script src="javascripts/app.js"></script>
+</body>
+</html>
